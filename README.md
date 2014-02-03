@@ -14,7 +14,7 @@ Usage
 
 Autocue is very easy to use:
 
-  autocue file1 file2 ...
+    autocue file1 file2 ...
 
 This will generate file1.cue and file2.cue in the same directory as the original files.
 The cue-file will contain a track for each chapter found in the respective file. 
