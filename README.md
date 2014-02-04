@@ -25,9 +25,10 @@ Todo
 -------
 
 * Write proper filetype to cue, instead of MP3
-* Handle files without chaptermarks
+
 
 Version History
 -------
 
+0.2 handle files without chapters
 0.1 initial release
