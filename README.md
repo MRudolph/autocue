@@ -32,6 +32,6 @@ Todo
 Version History
 -------
 
-0.3 remove original extension to be compatible with rockbox
-0.2 handle files without chapters
-0.1 initial release
+* 0.3 remove original extension to be compatible with rockbox
+* 0.2 handle files without chapters
+* 0.1 initial release
