@@ -1,0 +1,44 @@
+.\" generated with Ronn/v0.7.3
+.\" http://github.com/rtomayko/ronn/tree/0.7.3
+.
+.TH "AUTOCUE" "1" "February 2014" "" ""
+.
+.SH "NAME"
+\fBautocue\fR \- generate cuesheets from media files with chapter marks
+.
+.SH "SYNOPSIS"
+\fBautocue\fR file1 file2 \.\.\.
+.
+.SH "DESCRIPTION"
+Autocue will generate cue files in the same directory as the files given as parameter\. The cue\-file will contain a track for each chapter found in the respective file\.
+.
+.P
+These files can be used for players which support cuesheets but not embedded chaptermarks\.
+.
+.SH "OPTIONS"
+Currently, there are no options to set\.
+.
+.SH "Examples"
+.
+.nf
+
+autocue fileWithChapters\.mp3 anotherFileWhithChapters\.mp3 noChapters\.mp3
+.
+.fi
+.
+.P
+This will generate (assuming that the first two files had Chapters) fileWithChapters\.cue and anotherFileWhithChapters\.cue\. Nothing is generated if there are no chapters, so noChapters\.cue wouldn\'t be created\.
+.
+.SH "EXIT CODE"
+The exit code of this program doesn\'t reflect success or failure, so don\'t rely upon it\.
+.
+.SH "BUGS"
+.
+.IP "\(bu" 4
+Problems with (hidden) files without extension
+.
+.IP "\(bu" 4
+Always writes "MP3" in cue, even if other supported format
+.
+.IP "" 0
+

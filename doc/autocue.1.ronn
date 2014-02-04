@@ -1,0 +1,35 @@
+autocue(1) -- generate cuesheets from media files with chapter marks
+================================
+
+## SYNOPSIS
+
+`autocue` file1 file2 ...
+
+
+## DESCRIPTION
+
+Autocue will generate cue files in the same directory as the files given as parameter.
+The cue-file will contain a track for each chapter found in the respective file. 
+
+These files can be used for players which support cuesheets but not embedded chaptermarks.
+
+## OPTIONS 
+
+Currently, there are no options to set.
+
+## Examples
+
+    autocue fileWithChapters.mp3 anotherFileWhithChapters.mp3 noChapters.mp3
+    
+This will generate (assuming that the first two files had Chapters) fileWithChapters.cue and anotherFileWhithChapters.cue.
+Nothing is generated if there are no chapters, so noChapters.cue wouldn't be created.
+
+## EXIT CODE
+
+The exit code of this program doesn't reflect success or failure, so don't rely upon it.
+
+## BUGS
+
+* Problems with (hidden) files without extension
+* Always writes "MP3" in cue, even if other supported format
+
