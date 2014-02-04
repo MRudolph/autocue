@@ -19,6 +19,8 @@ Autocue is very easy to use:
 This will generate file1.cue and file2.cue in the same directory as the original files.
 The cue-file will contain a track for each chapter found in the respective file. 
 
+These files can be used for players which support cuesheets but not embedded chaptermarks.
+I'm looking to you, [rockbox](http://www.rockbox.org/).
 
 
 Todo
