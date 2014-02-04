@@ -1,0 +1,80 @@
+#Maintainer: Maximilian Rudolph <youremail@domain.com>
+pkgname=autocue-git
+pkgrel=1
+pkgver=0.3.r3.g46307a9
+pkgdesc="Generates cuesheets from embedded chaptermarks in media files."
+arch=('any')
+url="https://github.com/MRudolph/autocue"
+license=('MIT')
+groups=()
+depends=('coreutils' 'bash' 'ffmpeg')
+makedepends=('git')
+provides=()
+conflicts=()
+replaces=()
+backup=()
+options=()
+install=
+source=(autocue::git+https://github.com/MRudolph/autocue.git)
+noextract=()
+md5sums=('SKIP') #generate with 'makepkg -g'
+
+#_gitroot=https://github.com/MRudolph/autocue.git
+#_gitname=autocue
+
+
+pkgver() {
+  cd "$srcdir/$autocue"
+  git describe --long | sed -E 's/([^-]*-g)/r\1/;s/-/./g'
+}
+
+#build() {
+#  cd "$srcdir"
+#  msg "Connecting to GIT server...."
+
+#  if [[ -d "$_gitname" ]]; then
+#    cd "$_gitname" && git pull origin
+#    msg "The local files are updated."
+#  else
+#    git clone "$_gitroot" "$_gitname"
+#  fi
+
+#  msg "GIT checkout done or server timeout"
+#  msg "Starting build..."
+
+#  rm -rf "$srcdir/$_gitname-build"
+#  git clone "$srcdir/$_gitname" "$srcdir/$_gitname-build"
+#  cd "$srcdir/$_gitname-build"
+
+  # no build needed, it's a bash-script
+#}
+
+package() {
+  
+  #executable
+  cd "$srcdir/autocue"
+  mkdir -p "$pkgdir/usr/bin"
+  cp "autocue" "$pkgdir/usr/bin/"
+  
+  #doc
+  mkdir -p "$pkgdir/usr/share/doc/autocue/" 
+  cp doc/*.html "$pkgdir/usr/share/doc/autocue" #html-doc
+  cp README.md "$pkgdir/usr/share/doc/autocue"  #README
+  cp LICENSE "$pkgdir/usr/share/doc/autocue"  #LICENSE  
+  
+  #man-pages
+  for i in {1..8}
+  do
+     if test -n "$(find doc -maxdepth 1 -name "*.$i" -print -quit)"
+     then
+       mkdir -p "$pkgdir/usr/share/man/man$i"
+       f="doc/*.$i"
+       cp $f "$pkgdir/usr/share/man/man$i"
+     fi
+  done
+  
+  
+  
+}
+
+# vim:set ts=2 sw=2 et:
