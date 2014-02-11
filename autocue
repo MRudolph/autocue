@@ -14,7 +14,8 @@ function missingChapters {
   fi
 }
 
-
+IFSSAVE=$IFS
+IFS=$(echo -en "\n\b")
 for file in $*
 do
         spaces=""
@@ -54,3 +55,4 @@ do
           echo "created $outfile with $tracks tracks" >&2
         fi
 done
+IFS=$IFSSAVE
