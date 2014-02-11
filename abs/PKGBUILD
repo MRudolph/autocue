@@ -1,4 +1,4 @@
-#Maintainer: Maximilian Rudolph <youremail@domain.com>
+#Maintainer: Maximilian Rudolph
 pkgname=autocue-git
 pkgrel=1
 pkgver=0.3.r3.g46307a9
